@@ -1,0 +1,21 @@
+.todays-weather-statement,
+.city-name,
+footer {
+  color: #aa4a30;
+  font-family: "Caprasimo", cursive;
+  margin: 50px, 25px;
+  text-align: center;
+}
+footer {
+  font-size: 14px;
+}
+
+div {
+  color: #aa4a30;
+  font-family: "Pompiere", cursive;
+  font-size: 20px;
+}
+
+.todays-date-time {
+  text-align: center;
+}

@@ -5,48 +5,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather Project</title>
-    <link rel="stylesheet" href="src/style.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
       crossorigin="anonymous"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Pompiere&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/style.css" />
   </head>
   <body>
     <div class="container">
-      <h1>Weather Search Project</h1>
+      <h1 class="todays-weather-statement">
+        Today's weather conditions in <span class="city-name">Honolulu</span>
+      </h1>
       <div class="row">
         <div class="col search-form"></div>
       </div>
       <div class="row">
-        <div class="col-4">
-          Today's weather conditions in
-          <span class="city-name"> Honolulu </span>
-        </div>
-        <div class="col-8 forecast-section-1">Forecast</div>
-      </div>
-      <div class="row">
-        <div class="col-4">
+        <div class="col-3">
           Current temperature: <span class="current-temp">81</span>°
           <span class="farenheit">F</span> |
           <span class="celsius">C</span>
         </div>
-        <div class="col-8 forecast-section-2"></div>
-      </div>
-      <div class="row">
-        <div class="col-4">Broken Clouds</div>
-      </div>
-      <div class="row">
-        <div class="col-4">Humidity: <span class="humdity">68</span>%</div>
-      </div>
-      <div class="row">
-        <div class="col-4">
+        <div class="col-3">Broken Clouds</div>
+        <div class="col-3">Humidity: <span class="humdity">68</span>%</div>
+        <div class="col-3">
           Windspeed: <span class="windspeed">15</span>/mph
         </div>
       </div>
       <div class="row">
-        <div class="col">
+        <div class="col todays-date-time">
           Today is <span class="weekday">Monday</span> and the local time is:
           <span class="time"> 11:49</span>
         </div>
@@ -62,7 +56,8 @@
         <a
           href="https://www.linkedin.com/in/claudia-mena-rieke-a3a1b967/"
           target="_blank"
-          >Claudia Mena Rieke.</a
+        >
+          Claudia Mena Rieke.</a
         >
       </footer>
     </div>
