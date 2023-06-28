@@ -1,21 +1,29 @@
-.todays-weather-statement,
-.city-name,
-footer {
-  color: #aa4a30;
-  font-family: "Caprasimo", cursive;
-  margin: 50px, 25px;
-  text-align: center;
-}
-footer {
-  font-size: 14px;
-}
-
 div {
   color: #aa4a30;
   font-family: "Pompiere", cursive;
   font-size: 20px;
 }
+footer {
+  color: #aa4a30;
+  font-family: "Caprasimo", cursive;
+  padding: 30px, 25px;
+  font-size: 14px;
+}
 
+.weather-project-border {
+  margin: 20px auto;
+  padding: 25px 25px;
+  border: 1px solid #aa4a30;
+  max-width: 900px;
+}
 .todays-date-time {
+  text-align: center;
+}
+
+.todays-weather-statement,
+.city-name {
+  color: #aa4a30;
+  font-family: "Caprasimo", cursive;
+  margin: 50px, 25px;
   text-align: center;
 }
