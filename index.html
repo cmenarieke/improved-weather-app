@@ -24,25 +24,34 @@
     <div class="container">
       <div class="weather-project-border">
         <h1 class="todays-weather-statement">
-          Today's weather conditions in <span class="city-name">Honolulu </span>
+          Today's weather conditions in <span class="city-name"></span>
         </h1>
         <div class="row">
-          <div class="col search-form"></div>
-        </div>
-        <div class="row">
-          <div class="col-3">
-            Current temperature: <span class="current-temp"></span>°
-            <span class="farenheit">F</span> |
-            <span class="celsius"><a href="#">C</a></span>
+          <div class="col-6 icon-and-temperature">
+            <img
+              src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/scattered-clouds-day.png"
+              alt=""
+              class="weather-icon"
+            />
+            <div class="temperature-statement">
+              Current temperature: <span class="current-temp"></span>°
+              <span class="farenheit"><a href="#">F</a></span> |
+              <span class="celsius"><a href="#">C</a></span>
+            </div>
           </div>
-          <div class="col-3 weather-condition">Broken Clouds</div>
-          <div class="col-3">Humidity: <span class="humidity"></span>%</div>
-          <div class="col-3">
-            Windspeed: <span class="windspeed"></span>/mph
+          <div class="col-6">
+            <ul class="list-unstyled weather-condition-list">
+              <li class="weather-condition">Broken Clouds</li>
+              <li>Humidity: <span class="humidity"></span>%</li>
+              <li>Windspeed: <span class="windspeed"></span>/mph</li>
+              <li class="col todays-date-time"></li>
+            </ul>
           </div>
+          <div class="row">
+            <div class="col search-form"></div>
+          </div>
+          <div class="row forecast"></div>
         </div>
-        <div class="col todays-date-time"></div>
-        <div class="row forecast"></div>
       </div>
       <footer>
         <a

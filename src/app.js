@@ -38,6 +38,14 @@ function displayWeather(response) {
   windspeed.innerHTML = Math.round(response.data.wind.speed);
   let lastUpdated = document.querySelector(".todays-date-time");
   lastUpdated.innerHTML = showDate(response.data.time * 1000);
+  let weatherIconUpdate = document.querySelector(".weather-icon");
+  let iconUpdate = response.data.condition.icon;
+  let altUpdate = response.data.condition.description;
+  weatherIconUpdate.setAttribute(
+    `src`,
+    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${iconUpdate}.png`
+  );
+  weatherIconUpdate.setAttribute(`alt`, `${altUpdate}`);
 }
 
 let apiKey = "0cb9ed087t764d66183dfo493b5aadf0";
