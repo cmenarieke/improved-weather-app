@@ -48,9 +48,20 @@ function displayWeather(response) {
   weatherIconUpdate.setAttribute(`alt`, `${altUpdate}`);
 }
 
-let apiKey = "0cb9ed087t764d66183dfo493b5aadf0";
-let city = "Honolulu";
-let unit = "imperial";
-let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=${unit}`;
+function newCitySearch(event) {
+  event.preventDefault();
+  let cityValue = document.querySelector(".city-input");
+  search(cityValue.value);
+}
 
-axios.get(apiUrl).then(displayWeather);
+function search(city) {
+  let apiKey = "0cb9ed087t764d66183dfo493b5aadf0";
+  let unit = "imperial";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=${unit}`;
+  axios.get(apiUrl).then(displayWeather);
+}
+
+search(`Honolulu`);
+
+let form = document.querySelector(".search-form");
+form.addEventListener("submit", newCitySearch);
