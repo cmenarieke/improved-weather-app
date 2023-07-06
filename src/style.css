@@ -31,3 +31,7 @@ footer {
 .todays-date-time {
   text-align: center;
 }
+
+.weather-condition:first-letter {
+  text-transform: capitalize;
+}

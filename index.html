@@ -17,6 +17,7 @@
       href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Pompiere&display=swap"
       rel="stylesheet"
     />
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
     <link rel="stylesheet" href="src/style.css" />
   </head>
   <body>
@@ -30,14 +31,14 @@
         </div>
         <div class="row">
           <div class="col-3">
-            Current temperature: <span class="current-temp">81</span>°
+            Current temperature: <span class="current-temp"></span>°
             <span class="farenheit">F</span> |
-            <span class="celsius">C</span>
+            <span class="celsius"><a href="#">C</a></span>
           </div>
-          <div class="col-3">Broken Clouds</div>
-          <div class="col-3">Humidity: <span class="humdity">68</span>%</div>
+          <div class="col-3 weather-condition">Broken Clouds</div>
+          <div class="col-3">Humidity: <span class="humidity"></span>%</div>
           <div class="col-3">
-            Windspeed: <span class="windspeed">15</span>/mph
+            Windspeed: <span class="windspeed"></span>/mph
           </div>
         </div>
         <div class="col todays-date-time">
