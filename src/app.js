@@ -24,12 +24,17 @@ function showDate(timestamp) {
   return `Last updated on ${weekday} at ${hours}:${minutes}`;
 }
 
+let fahrenheitTemp = null;
+
 function displayWeather(response) {
   console.log(response.data);
   let cityName = document.querySelector(".city-name");
   cityName.innerHTML = response.data.city;
   let currentTemp = document.querySelector(".current-temp");
   currentTemp.innerHTML = Math.round(response.data.temperature.current);
+
+  fahrenheitTemp = response.data.temperature.current;
+
   let weatherconditions = document.querySelector(".weather-condition");
   weatherconditions.innerHTML = response.data.condition.description;
   let humidity = document.querySelector(".humidity");
@@ -61,7 +66,17 @@ function search(city) {
   axios.get(apiUrl).then(displayWeather);
 }
 
-search(`Honolulu`);
+function showCelsiusTemp(event) {
+  event.preventDefault();
+  let temperature = document.querySelector(".current-temp");
+  let celsiusTemp = (fahrenheitTemp - 32) * (5 / 9);
+  temperature.innerHTML = Math.round(celsiusTemp);
+}
 
 let form = document.querySelector(".search-form");
 form.addEventListener("submit", newCitySearch);
+
+let celsiusLink = document.querySelector(".celsiusLink");
+celsiusLink.addEventListener("click", showCelsiusTemp);
+alert("hello");
+search(`Honolulu`);
