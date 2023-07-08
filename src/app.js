@@ -76,7 +76,7 @@ function showCelsiusTemp(event) {
 let form = document.querySelector(".search-form");
 form.addEventListener("submit", newCitySearch);
 
-let celsiusLink = document.querySelector(".celsiusLink");
+let celsiusLink = document.querySelector(".celsius-link");
 celsiusLink.addEventListener("click", showCelsiusTemp);
 alert("hello");
 search(`Honolulu`);
