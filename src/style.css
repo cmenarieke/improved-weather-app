@@ -39,3 +39,12 @@ footer {
 .weather-condition:first-letter {
   text-transform: capitalize;
 }
+
+.temperature-statement .active {
+  color: #aa4a30;
+  text-decoration: none;
+}
+
+.temperature-statement .active:hover {
+  cursor: default;
+}

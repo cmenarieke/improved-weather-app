@@ -69,8 +69,18 @@ function search(city) {
 function showCelsiusTemp(event) {
   event.preventDefault();
   let temperature = document.querySelector(".current-temp");
+  farenheitLink.classList.remove("active");
+  celsiusLink.classList.add("active");
   let celsiusTemp = (fahrenheitTemp - 32) * (5 / 9);
   temperature.innerHTML = Math.round(celsiusTemp);
+}
+
+function showFarenheitTemp(event) {
+  event.preventDefault();
+  let temperature = document.querySelector(".current-temp");
+  celsiusLink.classList.remove("active");
+  farenheitLink.classList.add("active");
+  temperature.innerHTML = Math.round(fahrenheitTemp);
 }
 
 let form = document.querySelector(".search-form");
@@ -78,5 +88,8 @@ form.addEventListener("submit", newCitySearch);
 
 let celsiusLink = document.querySelector(".celsius-link");
 celsiusLink.addEventListener("click", showCelsiusTemp);
-alert("hello");
+
+let farenheitLink = document.querySelector(".farenheit-link");
+farenheitLink.addEventListener("click", showFarenheitTemp);
+
 search(`Honolulu`);
