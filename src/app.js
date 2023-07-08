@@ -26,6 +26,8 @@ function showDate(timestamp) {
 
 let fahrenheitTemp = null;
 
+let windspeedUnit = null;
+
 function displayWeather(response) {
   console.log(response.data);
   let cityName = document.querySelector(".city-name");
@@ -34,13 +36,14 @@ function displayWeather(response) {
   currentTemp.innerHTML = Math.round(response.data.temperature.current);
 
   fahrenheitTemp = response.data.temperature.current;
+  windspeedUnit = response.data.wind.speed;
 
   let weatherconditions = document.querySelector(".weather-condition");
   weatherconditions.innerHTML = response.data.condition.description;
   let humidity = document.querySelector(".humidity");
   humidity.innerHTML = response.data.temperature.humidity;
   let windspeed = document.querySelector(".windspeed");
-  windspeed.innerHTML = Math.round(response.data.wind.speed);
+  windspeed.innerHTML = `${Math.round(response.data.wind.speed)}/mph`;
   let lastUpdated = document.querySelector(".todays-date-time");
   lastUpdated.innerHTML = showDate(response.data.time * 1000);
   let weatherIconUpdate = document.querySelector(".weather-icon");
@@ -66,30 +69,37 @@ function search(city) {
   axios.get(apiUrl).then(displayWeather);
 }
 
-function showCelsiusTemp(event) {
+function showMetricConversion(event) {
   event.preventDefault();
-  let temperature = document.querySelector(".current-temp");
+
   farenheitLink.classList.remove("active");
   celsiusLink.classList.add("active");
+  let temperature = document.querySelector(".current-temp");
   let celsiusTemp = (fahrenheitTemp - 32) * (5 / 9);
   temperature.innerHTML = Math.round(celsiusTemp);
+
+  let windspeedElement = document.querySelector(".windspeed");
+  windspeedElement.innerHTML = `${Math.round(windspeedUnit * 1.609)}/kph`;
 }
 
-function showFarenheitTemp(event) {
+function showImperialConversion(event) {
   event.preventDefault();
-  let temperature = document.querySelector(".current-temp");
+
   celsiusLink.classList.remove("active");
   farenheitLink.classList.add("active");
+  let temperature = document.querySelector(".current-temp");
   temperature.innerHTML = Math.round(fahrenheitTemp);
+  let windspeedElement = document.querySelector(".windspeed");
+  windspeedElement.innerHTML = `${Math.round(windspeedUnit)}/mph`;
 }
 
 let form = document.querySelector(".search-form");
 form.addEventListener("submit", newCitySearch);
 
 let celsiusLink = document.querySelector(".celsius-link");
-celsiusLink.addEventListener("click", showCelsiusTemp);
+celsiusLink.addEventListener("click", showMetricConversion);
 
 let farenheitLink = document.querySelector(".farenheit-link");
-farenheitLink.addEventListener("click", showFarenheitTemp);
+farenheitLink.addEventListener("click", showImperialConversion);
 
 search(`Honolulu`);
