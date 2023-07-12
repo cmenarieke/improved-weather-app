@@ -48,3 +48,8 @@ footer {
 .temperature-statement .active:hover {
   cursor: default;
 }
+
+.weather-forecast {
+  margin-top: 25px;
+  text-align: center;
+}
