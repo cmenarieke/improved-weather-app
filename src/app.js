@@ -28,6 +28,33 @@ let fahrenheitTemp = null;
 
 let windspeedUnit = null;
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  let days = ["Thursday", "Friday", "Saturday", "Sunday"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+   <div class="col-2">
+     <span class="weather-forecast-date">${day}</span>
+     <div class="weather-forecast-icon">
+       <img
+         src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/scattered-clouds-day.png"
+         alt=""
+       />
+     </div>
+     <div class="weather-forecast-temps">
+       <span class="weather-forecast-temp-max">88°</span> |
+       <span class="weather-forecast-temp-min">76°</span>
+     </div>
+   </div>`;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function displayWeather(response) {
   console.log(response.data);
   let cityName = document.querySelector(".city-name");
@@ -103,3 +130,4 @@ let farenheitLink = document.querySelector(".farenheit-link");
 farenheitLink.addEventListener("click", showImperialConversion);
 
 search(`Honolulu`);
+displayForecast();
