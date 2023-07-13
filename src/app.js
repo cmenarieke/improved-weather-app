@@ -28,7 +28,8 @@ let fahrenheitTemp = null;
 
 let windspeedUnit = null;
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
@@ -53,6 +54,15 @@ function displayForecast() {
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  let lon = coordinates.longitude;
+  let lat = coordinates.latitude;
+
+  let apiKey = `0cb9ed087t764d66183dfo493b5aadf0`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${lon}&lat=${lat}&key=${apiKey}&units=imperial`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function displayWeather(response) {
@@ -81,6 +91,8 @@ function displayWeather(response) {
     `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${iconUpdate}.png`
   );
   weatherIconUpdate.setAttribute(`alt`, `${altUpdate}`);
+
+  getForecast(response.data.coordinates);
 }
 
 function newCitySearch(event) {
@@ -130,4 +142,3 @@ let farenheitLink = document.querySelector(".farenheit-link");
 farenheitLink.addEventListener("click", showImperialConversion);
 
 search(`Honolulu`);
-displayForecast();
