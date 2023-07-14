@@ -45,9 +45,26 @@ function formatDay(timestamp) {
   return days[day];
 }
 
+function showPosition(position) {
+  let latitude = position.coords.latitude;
+  let longitude = position.coords.longitude;
+
+  let apiKey = `0cb9ed087t764d66183dfo493b5aadf0`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${longitude}&lat=${latitude}&key=${apiKey}`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayWeather);
+}
+
+function getCurrentPosition() {
+  navigator.geolocation.getCurrentPosition(showPosition);
+}
+
+let currentLocationButton = document.querySelector(".current-location");
+currentLocationButton.addEventListener("click", getCurrentPosition);
+
 function displayForecast(response) {
   let forecast = response.data.daily;
-  console.log(forecast);
+
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
