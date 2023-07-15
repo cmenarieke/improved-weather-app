@@ -50,8 +50,8 @@ function showPosition(position) {
   let longitude = position.coords.longitude;
 
   let apiKey = `0cb9ed087t764d66183dfo493b5aadf0`;
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${longitude}&lat=${latitude}&key=${apiKey}`;
-  console.log(apiUrl);
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${longitude}&lat=${latitude}&key=${apiKey}&units=imperial`;
+
   axios.get(apiUrl).then(displayWeather);
 }
 
@@ -109,7 +109,6 @@ function getForecast(coordinates) {
 }
 
 function displayWeather(response) {
-  console.log(response.data);
   let cityName = document.querySelector(".city-name");
   cityName.innerHTML = response.data.city;
   let currentTemp = document.querySelector(".current-temp");

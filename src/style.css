@@ -53,3 +53,7 @@ footer {
   margin-top: 25px;
   text-align: center;
 }
+
+.current-location {
+  margin-left: 5px;
+}
